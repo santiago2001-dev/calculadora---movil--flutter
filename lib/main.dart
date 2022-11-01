@@ -35,17 +35,29 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _numeroUno =  TextEditingController();
   final _numeroDos = TextEditingController();
-
-
-
-  int suma = 0;
+  int resultado = 0;
 
   void _sumar() {
     setState(() {
 
-      suma =  int.parse(_numeroUno.text) + int.parse(_numeroDos.text);
+      resultado =  int.parse(_numeroUno.text) + int.parse(_numeroDos.text);
     });
   }
+  void _restar(){
+
+    setState(() {
+      resultado =  int.parse(_numeroUno.text) - int.parse(_numeroDos.text);
+    });
+  }
+
+
+  void _multiplicar (){
+    setState(() {
+      resultado =  int.parse(_numeroUno.text) * int.parse(_numeroDos.text);
+    });
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -112,21 +124,61 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
+            Center(
+             child:  Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+
+               children: [
+                const SizedBox(
+                    height : 16.8
+                ),
+
+
+                   ElevatedButton.icon(
+                      onPressed: (){
+                        _sumar();
+                      },
+                      icon: const Icon(Icons.calculate),
+                      label: const Text('sumar')
+
+
+                  ),
+                 const SizedBox(
+                     height : 16.8
+                 ),
+
+
+                 ElevatedButton.icon(
+                    onPressed: (){
+                      _restar();
+                    },
+                    icon: const Icon(Icons.calculate),
+                    label: const Text('restar')
+
+
+                ),
+                 const SizedBox(
+                     height : 16.8
+                 ),
+
+                 ElevatedButton.icon(
+                    onPressed: (){
+                      _multiplicar();
+                    },
+                    icon: const Icon(Icons.calculate),
+                    label: const Text('multiplicar')
+
+
+                ),
+              ],
+            ),
+            ),
             const SizedBox(
                 height : 16.8
             ),
 
-            ElevatedButton.icon(
-                onPressed: (){
-                  _sumar();
-                },
-                icon: const Icon(Icons.calculate),
-                label: const Text('sumar')
-
-
-            ),
             Text(
-              'la suma es  $suma',
+              'el resultado  es  $resultado',
               style: const TextStyle(
                 fontSize: 30,
                 color: Colors.white,
