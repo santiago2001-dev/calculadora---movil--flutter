@@ -148,8 +148,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: (){
                         _sumar();
                       },
-                      icon: const Icon(Icons.calculate),
-                      label: const Text('sumar')
+                      icon: const Icon(null),
+                      label: const Text('+')
 
 
                   ),
