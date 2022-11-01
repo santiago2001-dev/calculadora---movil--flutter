@@ -36,6 +36,14 @@ class _MyHomePageState extends State<MyHomePage> {
   final _numeroUno =  TextEditingController();
   final _numeroDos = TextEditingController();
   int resultado = 0;
+  double resultadoDvi = 0.0;
+
+  void _divi(){
+    setState(() {
+      resultadoDvi =  int.parse(_numeroUno.text) / int.parse(_numeroDos.text);
+      resultado = resultadoDvi.truncate();
+    });
+  }
 
   void _sumar() {
     setState(() {
@@ -123,7 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-
+            const SizedBox(
+                height : 16.8
+            ),
             Center(
              child:  Row(
                mainAxisAlignment: MainAxisAlignment.center,
@@ -143,9 +153,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                   ),
-                 const SizedBox(
-                     height : 16.8
-                 ),
 
 
                  ElevatedButton.icon(
@@ -157,9 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                 ),
-                 const SizedBox(
-                     height : 16.8
-                 ),
+
 
                  ElevatedButton.icon(
                     onPressed: (){
@@ -170,6 +175,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                 ),
+                 const SizedBox(
+                     height : 16.8
+                 ),
+
+
+                 ElevatedButton.icon(
+                     onPressed: (){
+                       _divi();
+                     },
+                     icon: const Icon(Icons.calculate),
+                     label: const Text('dividir')
+
+
+                 ),
               ],
             ),
             ),
